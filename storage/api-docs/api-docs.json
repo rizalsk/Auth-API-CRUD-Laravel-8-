@@ -1,0 +1,317 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel OpenApi Demo Documentation",
+        "description": "Click Try it out & Execute buttons",
+        "contact": {
+            "email": "rizalmasyhadi@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/plain-crud": {
+            "get": {
+                "tags": [
+                    "Crud"
+                ],
+                "summary": "Get list of crud",
+                "description": "Returns list of crud",
+                "operationId": "getCrudList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Crud"
+                ],
+                "summary": "Store new crud",
+                "description": "Returns crud data",
+                "operationId": "storeCrud",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreCrudRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Crud"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/v1/plain-crud/{user_id}": {
+            "get": {
+                "tags": [
+                    "Crud"
+                ],
+                "summary": "Get crud information",
+                "description": "Returns crud data",
+                "operationId": "getCrudByUserId",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "Crud User ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Crud"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Crud"
+                ],
+                "summary": "Update existing crud",
+                "description": "Returns updated crud data",
+                "operationId": "updateCrud",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateCrudRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Crud"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Crud"
+                ],
+                "summary": "Delete existing crud",
+                "description": "Deletes a record and returns no content",
+                "operationId": "deleteCrud",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Crud": {
+                "title": "Crud",
+                "description": "Crud model",
+                "properties": {
+                    "user_id": {
+                        "title": "USER_ID",
+                        "description": "USER_ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "status": {
+                        "title": "Status",
+                        "description": "Status",
+                        "type": "string",
+                        "example": "active"
+                    },
+                    "position": {
+                        "title": "Position",
+                        "description": "Position",
+                        "type": "string",
+                        "example": "Manager"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Crud"
+                }
+            },
+            "CrudResource": {
+                "title": "CrudResource",
+                "description": "Crud resource",
+                "properties": {
+                    "data": {
+                        "title": "Data",
+                        "description": "Data wrapper",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Crud"
+                        }
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "CrudResource"
+                }
+            },
+            "StoreCrudRequest": {
+                "title": "Store Crud request",
+                "description": "Store Crud request body data",
+                "required": [
+                    "status"
+                ],
+                "properties": {
+                    "status": {
+                        "title": "status",
+                        "description": "Status of the new Crud",
+                        "type": "string",
+                        "example": "active"
+                    },
+                    "position": {
+                        "title": "position",
+                        "description": "Position of the new Crud",
+                        "type": "string",
+                        "example": "Staff"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateCrudRequest": {
+                "title": "Update Crud request",
+                "description": "Update Crud request body data",
+                "required": [
+                    "status"
+                ],
+                "properties": {
+                    "status": {
+                        "title": "status",
+                        "description": "Status of the new Crud",
+                        "type": "string",
+                        "example": "active"
+                    },
+                    "position": {
+                        "title": "position",
+                        "description": "Position of the new Crud",
+                        "type": "string",
+                        "example": "Staff"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "examples": {
+            "Crud1": {
+                "summary": "Crud1",
+                "value": {
+                    "status": "inactive",
+                    "position": "Staff"
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

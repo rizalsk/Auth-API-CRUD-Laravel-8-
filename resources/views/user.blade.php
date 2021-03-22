@@ -3,6 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('User List') }}
         </h2>
+        <small>Password = <span class="bg-gray-200">password</span></small>
     </x-slot>
 
     <div class="w-full">

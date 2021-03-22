@@ -4,6 +4,8 @@ namespace Tests\Unit\Bridgenote;
 
 use Tests\TestCase;
 use Laravel\Sanctum\Sanctum;
+use App\Http\Resources\CrudResource;
+
 use App\Models\User;
 use App\Models\Crud;
 
@@ -21,13 +23,14 @@ class ApiTest extends TestCase
     	//seeding fake data
         $crud = Crud::factory(5)->create();
 
-		$this->json('GET', '/api/crud/' , [])
-        ->assertStatus(200)
-        ->assertJson([
-        	'data' => $crud->toArray(),
-			'message' => 'Retrieved successfully'
+		$response = $this->json('GET', '/api/crud/' , []);
+        $response->assertStatus(200);
+        $response->assertJson([
+            'data' => collect($crud)->toArray(),
+            'message' => 'Retrieved successfully'
         ]);
     }
+    
 	//test create data
     public function test_can_create_crud() {
     	Sanctum::actingAs(

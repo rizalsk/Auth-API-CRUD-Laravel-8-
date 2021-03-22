@@ -31,6 +31,12 @@
                     </div>
 
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="/api/documentation" :active="request()->routeIs('api-documentation')">
+                            {{ __('API Documentation') }}
+                        </x-jet-nav-link>
+                    </div>
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-jet-nav-link href="#" onclick="event.preventDefault();
                             document.getElementById('f-logout').submit();">
                             {{ __('Log Out') }}
@@ -171,6 +177,10 @@
                 <x-jet-responsive-nav-link href="{{ route('crud.list') }}" :active="request()->routeIs('cruds')">
                     {{ __('Crud List') }}
                 </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ '/api/documentation' }}" :active="request()->routeIs('api-documentation')">
+                    {{ __('API Documentation') }}
+                </x-jet-responsive-nav-link>
             </div>
 
             <!-- Responsive Settings Options -->
@@ -251,6 +261,7 @@
         <div class="w-full">
             <div class="flex justify-between h-16">
                 <div class="absolute top-0 right-0 px-6 py-4 sm:block">
+                    <a href="/api/documentation" class="mx-4 text-sm text-gray-700 underline">API Documentation</a>
                     <a href="{{ route('user.list') }}" class="mx-4 text-sm text-gray-700 underline">USER List</a>
                     <a href="{{ route('crud.list') }}" class="mx-4 text-sm text-gray-700 underline">CRUD List</a>
                     @auth

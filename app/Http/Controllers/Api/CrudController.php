@@ -32,7 +32,7 @@ class CrudController extends Controller
 
         $crud = Crud::create($data);
 
-        return response(['project' => new CrudResource($crud), 'message' => 'Created successfully'], 201);
+        return response(['data' => new CrudResource($crud), 'message' => 'Created successfully'], 201);
     }
 
     public function show(Crud $crud)

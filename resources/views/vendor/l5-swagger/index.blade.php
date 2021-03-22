@@ -3,11 +3,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{config('l5-swagger.documentations.'.$documentation.'.api.title')}}</title>
+  <title>{{ config('app.name', 'Laravel') }}</title>
+  {{-- <title>{{config('l5-swagger.documentations.'.$documentation.'.api.title')}}</title> --}}
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ l5_swagger_asset($documentation, 'swagger-ui.css') }}" >
   <link rel="icon" type="image/png" href="{{ l5_swagger_asset($documentation, 'favicon-32x32.png') }}" sizes="32x32" />
   <link rel="icon" type="image/png" href="{{ l5_swagger_asset($documentation, 'favicon-16x16.png') }}" sizes="16x16" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+
+  <!-- Scripts -->
+  <script src="{{ mix('js/app.js') }}" defer></script>
+
   <style>
     html
     {
