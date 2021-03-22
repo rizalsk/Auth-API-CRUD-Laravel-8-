@@ -33,9 +33,7 @@ Route::get('tokenizer', function(){
 
 Route::get('seedcrud', function(){
 	$user = Crud::factory(10)->create();
-
     return response( $user, 201);
-
 });
 
 Route::resource('plain-crud', PlainCrudController::class);
