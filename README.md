@@ -10,3 +10,7 @@
 
 ###User
 1. Default password = `password`
+
+###Api Documentation (Swagger)
+1. URL = `/api/documentation`
+1. Click `Try it out` & `Execute` buttons

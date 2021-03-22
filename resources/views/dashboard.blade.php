@@ -28,6 +28,12 @@
                     <ol class="list-decimal">
                         <li>Default password = <code class="bg-gray-100 border">password</code></li>
                     </ol>
+                    
+                    <h3 class="text-lg font-bold m-5" id="h3-user"><a name="User" class="reference-link"></a><span class="header-link octicon octicon-link"></span>API Documentation (Swagger)</h3>
+                    <ol class="list-decimal">
+                        <li>URL = <code class="bg-gray-100 border">/api/documentation</code></li>
+                        <li>Click <code class="bg-yellow-400 border">Try it out</code> & <code class="bg-yellow-400 border">Execute</code> buttons</li>
+                    </ol>
                 </div>
 
                 <div class="mb-20"></div>
